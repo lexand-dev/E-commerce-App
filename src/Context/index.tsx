@@ -39,7 +39,6 @@ function ShoppingCartProvider ({ children }: ProviderProps) {
 
   // Get products by title
   const [searchByTitle, setSearchByTitle] = useState('');
-  console.log('searchByTitle: ', searchByTitle)
 
     // Get products by category
     const [filteredByCategory, setFilteredByCategory] = useState('');

@@ -18,11 +18,13 @@ export default function MyOrder() {
 
   const { order } :{ order: OrderCard[] } = useContext(ShoppingCartContext)
   const pathname = usePathname()
-  let index = pathname.substring(pathname.lastIndexOf('/') + 1)
-  
+  let index = pathname.lastIndexOf('/') + 1
 
   
-  if(index === 'last') index = (order.length - 1).toString();
+  if (index === 11) 
+    index = order.length - 1;
+    
+
 
   return (
     <>
@@ -34,7 +36,7 @@ export default function MyOrder() {
       </div>
       <div className='flex flex-col w-96'>
   {order && order.length > 0 ? (
-    typeof index === 'string' ? (
+    typeof index === 'number' ? (
       order[index]?.products.map((product: ProductData) => (
         <OrderCard
           id={product.id}

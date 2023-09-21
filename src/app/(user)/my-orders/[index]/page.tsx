@@ -18,11 +18,10 @@ export default function MyOrder() {
 
   const { order } :{ order: OrderCard[] } = useContext(ShoppingCartContext)
   const pathname = usePathname()
-  let index = pathname.substring(pathname.lastIndexOf('/') + 1)
+  let index = pathname.lastIndexOf('/') + 1
   
-  if(!order) return <p>Loading...</p>
-  
-  if(index === 'last') index = (order.length - 1).toString();
+  if (index === 11) 
+    index = order.length - 1;
 
   return (
     <>

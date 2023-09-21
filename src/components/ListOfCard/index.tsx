@@ -11,8 +11,9 @@ export const ListOfCard = () => {
   const { items, filteredItems, searchByTitle } = useContext(ShoppingCartContext);
 
   const renderItems = () => {
+    const render = filteredItems?.length > 0 
 
-      if (filteredItems?.length > 0) {
+      if (render) {
         return (
           filteredItems?.map((item : ProductData) => (
             <Card key={item.id} product={item}
@@ -22,7 +23,7 @@ export const ListOfCard = () => {
       } else {
         return (
           <div className="flex justify-center">
-            <p className="text-2xl">No results found</p>
+            <p className="text-2xl">Loading.. pronte tendremos el producto que buscas, puedes seguir navegando</p>
           </div>
         )
       }
