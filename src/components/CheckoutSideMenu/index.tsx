@@ -14,6 +14,7 @@ export const CheckoutSideMenu = () => {
   const { 
           isCheckoutSideOpen, 
           handleCheckoutSideClose,
+          handleProductDetailClose,
           productToCart,
           setProductToCart,
           setCount,
@@ -32,6 +33,7 @@ export const CheckoutSideMenu = () => {
     setProductToCart([])
     setCount(0)
     handleCheckoutSideClose()
+    handleProductDetailClose()
 }
 
   return (
