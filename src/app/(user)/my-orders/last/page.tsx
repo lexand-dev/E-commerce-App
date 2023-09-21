@@ -20,9 +20,9 @@ export default function MyOrder() {
   const pathname = usePathname()
   let index = pathname.substring(pathname.lastIndexOf('/') + 1)
   
-  if(!order) return <p>Loading...</p>
+
   
-  if(index === 'last') index = order?.length - 1
+  if(index === 'last') index = (order.length - 1).toString();
 
   return (
     <>
@@ -32,21 +32,25 @@ export default function MyOrder() {
         </Link>
         <h1>My Order</h1>
       </div>
-    <div className='flex flex-col w-96'>
-          {
-            order && order.length > 0 ? order?.[index]?.products.map((product: ProductData) => ( 
-              <OrderCard
-                id={product.id}
-                key={product.id}
-                imgUrl={product.image}
-                title={product.title}
-                price={product.price}
-              />
-            )
-          )
-          : <p className='text-center'>No Hay productos en la orden</p>
-          }
-        </div>
+      <div className='flex flex-col w-96'>
+  {order && order.length > 0 ? (
+    typeof index === 'string' ? (
+      order[index]?.products.map((product: ProductData) => (
+        <OrderCard
+          id={product.id}
+          key={product.id}
+          imgUrl={product.image}
+          title={product.title}
+          price={product.price}
+        />
+      ))
+      ) : (
+      <p className='text-center'>No Hay productos en la orden</p>
+        )
+      ) : (
+          <p className='text-center'>Loading...</p>
+        )}
+      </div>
     </>
   )
 }

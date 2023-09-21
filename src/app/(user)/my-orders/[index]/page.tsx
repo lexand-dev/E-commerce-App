@@ -22,7 +22,7 @@ export default function MyOrder() {
   
   if(!order) return <p>Loading...</p>
   
-  if(index === 'last') index = order?.length - 1
+  if(index === 'last') index = (order.length - 1).toString();
 
   return (
     <>
